@@ -17,7 +17,8 @@ function generateRandomCode() {
   return String.fromCharCode.apply(null, Array.from(array));
 }
 function base64UrlEncode(str: string) {
-  const base64 = btoa(str);
+  // const base64 = btoa(str);
+  const base64 = Buffer.from(str, "latin1").toString('base64');
   // This is to ensure that the encoding does not have +, /, or = characters in it.
   return base64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
 }
