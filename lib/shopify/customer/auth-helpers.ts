@@ -241,6 +241,9 @@ export async function createAllCookies({
   expiresAt: string;
   id_token?: string;
 }) {
+
+  cookies().getAll()
+
   response.cookies.set('shop_customer_token', customerAccessToken, {
     httpOnly: true, //if true can only read the cookie in server
     sameSite: 'lax',

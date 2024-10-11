@@ -13,11 +13,11 @@ function SubmitButton(props: any) {
     <>
       {props?.message && <div className="my-5">{props?.message}</div>}
       <button
+        disabled={pending}
         onClick={(e: React.FormEvent<HTMLButtonElement>) => {
           if (pending) e.preventDefault();
         }}
         aria-label="Log in"
-        aria-disabled={pending}
         className={clsx(buttonClasses, {
           'hover:opacity-90': true,
           'cursor-not-allowed opacity-60 hover:opacity-60': pending
